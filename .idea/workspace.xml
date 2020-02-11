@@ -2,20 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="063fe3eb-d10d-480d-9939-083c742b9f1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/Lianxi2/Juxing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/Lianxi2/Shape.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/Lianxi2/Text.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/Lianxi2/Yuan.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/lianxi/Cpu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/lianxi/I3.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/lianxi/I5.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/lianxi/I7.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/lianxi/Text.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Huiyi/lianxi/Zhuban.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/dongruan/lianxi2/Maplianxi.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/dongruan/lianxi2/Shuzu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/dongruan/lianxi2/Shuzukuorong.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/dongruan/lianxi2/Text.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,11 +16,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Huiyi/lianxi/Text.java">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Huiyi/lianxi/Zhuban.java">
           <provider selected="true" editor-type-id="text-editor" />
@@ -75,9 +56,18 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dongruan/lianxi2/Shuzu.java">
           <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/lianxi/Shuzu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -126,8 +116,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="85" />
-    <option name="y" value="25" />
+    <option name="x" value="55" />
+    <option name="y" value="11" />
     <option name="width" value="1750" />
     <option name="height" value="980" />
   </component>
@@ -160,14 +150,13 @@
               <item name="javapro" type="b2602c69:ProjectViewProjectNode" />
               <item name="javapro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="dongruan" type="462c0819:PsiDirectoryNode" />
-              <item name="lianxi2" type="462c0819:PsiDirectoryNode" />
+              <item name="Huiyi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javapro" type="b2602c69:ProjectViewProjectNode" />
               <item name="javapro" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Huiyi" type="462c0819:PsiDirectoryNode" />
+              <item name="lianxi" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -188,6 +177,13 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.常规" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/src/Text2.java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\javapro\src\com\dongruan" />
+      <recent name="F:\javapro\src" />
+      <recent name="F:\javapro\src\lianxi" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -263,7 +259,8 @@
       <workItem from="1581033171492" duration="5225000" />
       <workItem from="1581058560422" duration="7000" />
       <workItem from="1581058571862" duration="33000" />
-      <workItem from="1581316460297" duration="256000" />
+      <workItem from="1581316460297" duration="612000" />
+      <workItem from="1581317797365" duration="360000" />
     </task>
     <task id="LOCAL-00001" summary="111">
       <created>1580976204419</created>
@@ -293,14 +290,22 @@
       <option name="project" value="LOCAL" />
       <updated>1580989202731</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="111">
+      <created>1581316764863</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1581316764863</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17640000" />
+    <option name="totallyTimeSpent" value="18356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14908855" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -467,6 +472,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dongruan/lianxi2/Shuzu.java">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lianxi/Shuzu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
     </entry>
   </component>
   <component name="masterDetails">
