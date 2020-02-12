@@ -1,6 +1,9 @@
 package com.dongruan.tushu;
 
-public class Mybook {
+import java.io.Serializable;
+
+public class Mybook implements Serializable {
+    private static final long serialVersionUID = 1L;
     private String name;
     private double price;
     private String press;

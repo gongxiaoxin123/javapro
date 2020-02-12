@@ -1,5 +1,6 @@
 package com.dongruan.tushu;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -7,8 +8,9 @@ import java.util.Scanner;
 public class Mybookmethod extends Mybook {
     ArrayList books = new ArrayList(200);
     int m=0;
+    File file=new File("d:/tushu");
     Scanner scanner=new Scanner(System.in);
-    public  void inputData(Integer n){
+    public  ArrayList inputData(Integer n){
 
         ArrayList book = new ArrayList();
         for(int i=0;i<n;i++){
@@ -28,8 +30,10 @@ public class Mybookmethod extends Mybook {
             book.add(sc3);//出版社
             book.add(sc4);//作者
             book.add(sc5);//ISBN号
+            save();
             m++;
         }
+        return books;
     }
     public void print(){
         try{
@@ -65,6 +69,7 @@ public class Mybookmethod extends Mybook {
                 if(sc7.equals(sc7)==b.get(0).equals(sc7)){
                     books.remove(i);
                     System.out.println("删除成功");
+                    save();
                     return;
                 }
             }
@@ -72,5 +77,56 @@ public class Mybookmethod extends Mybook {
             System.out.println("输入错误");
         }
         System.out.println("没有此书籍");
+    }
+    public void save(){
+
+        OutputStream os = null;
+        ObjectOutputStream oos = null;
+        try {
+            os = new FileOutputStream(file);
+            oos = new ObjectOutputStream(os);
+            oos.writeObject(books);
+            oos.flush();
+            os.flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if(oos!=null)
+                    oos.close();
+                if(os!=null)
+                    os.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    public   ArrayList read(){
+        InputStream is  = null;
+        ObjectInputStream ois = null;
+        List list=new ArrayList(  );
+        try {
+            is = new FileInputStream(file);
+            ois = new ObjectInputStream(is);
+           list =(ArrayList) ois.readObject();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                if(ois!=null)
+                    ois.close();
+                if(is!=null)
+                    is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+   return books;
     }
 }
