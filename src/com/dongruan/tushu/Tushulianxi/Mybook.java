@@ -1,14 +1,33 @@
-package com.dongruan.tushu;
+package com.dongruan.tushu.Tushulianxi;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Mybook implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID;
+
+    static {
+        serialVersionUID = 1L;
+    }
+
     private String name;
     private double price;
     private String press;
     private String autor;
+
+    public Mybook() {
+    }
+    public Mybook(String name,double price,String press,String autor,String bookISBN) {
+       this.name=name;
+       this.press=press;
+       this.price=price;
+       this.autor=autor;
+       this.bookISBN=bookISBN;
+    }
+    @Override
+    public String toString() {
+        return "Mybook{}";
+    }
+
     private String bookISBN;
 
     public String getName() {

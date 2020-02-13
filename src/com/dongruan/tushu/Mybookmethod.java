@@ -5,87 +5,84 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Mybookmethod extends Mybook {
-    ArrayList books = new ArrayList(200);
-    int m=0;
-    File file=new File("d:/tushu");
-    Scanner scanner=new Scanner(System.in);
-    public  ArrayList inputData(Integer n){
+public class Mybookmethod {
 
-        ArrayList book = new ArrayList();
+    int m=0;
+
+
+    public List<Mybook> inputData(Integer n, List<Mybook> list, File file){
+
+        Scanner scanner=new Scanner(System.in);
+        Mybook book = new Mybook();
         for(int i=0;i<n;i++){
             System.out.println("输入书名");
-            String sc1=scanner.next();
+            String name=scanner.next();
             System.out.println("输入价格");
-            double sc2=scanner.nextDouble();
+            double price=scanner.nextDouble();
             System.out.println("输入出版社");
-            String sc3=scanner.next();
+            String press=scanner.next();
             System.out.println("输入作者");
-            String sc4=scanner.next();
+            String author =scanner.next();
             System.out.println("输入Isbn号");
-            String sc5=scanner.next();
-            books.add(i,book);
-            book.add(sc1);//名字
-            book.add(sc2);//价格
-            book.add(sc3);//出版社
-            book.add(sc4);//作者
-            book.add(sc5);//ISBN号
-            save();
+            String bookISBN =scanner.next();
+            list.add(i,book);
+             book.setName( name );
+             book.setPrice( price );
+             book.setPress( press );
+             book.setAutor( author );
+             book.setBookISBN(bookISBN);
+             save( list,file );
             m++;
         }
-        return books;
+        return list;
     }
-    public void print(){
-        try{
-            for(int i=0;i<m;i++){
-                System.out.println(books.get(i));
-                return;
-            }
-        }catch (Exception e){
+    public void print(List<Mybook> list){
+        if(list.size()==0){
             System.out.println("没有书籍");
+        }else {
+            for(Mybook book:list){
+                System.out.println("第"+(list.indexOf(book)+1)+"本书的全部信息");
+                System.out.println(book);
+            }
         }
-        System.out.println("没有书籍");
     }
-    public void searchName(){
-        String sc6=scanner.next();
-        try{
-            for(int i=0;i<m;i++){
-                List<String> a=(List) books.get(i);
-                if(sc6.equals(sc6)==a.get(0).equals(sc6)){
-                    System.out.println(books.get(i));
-                    return;
+    public void searchName(List<Mybook> list,String name){
+        if(list.size()==0){
+            System.out.println("书籍数量为0");
+        }else {
+            for(Mybook book:list){
+                if(book.getName().equals( name )){
+                    System.out.println(book);
+                    break;
+                }else {
+                    System.out.println("此书不存在");
                 }
             }
-        }catch (Exception ex){
-            System.out.println("没有此书籍");
         }
-        System.out.println("没有此书籍");
     }
-    public void deleteName(){
-        String sc7=scanner.next();
-        try{
-            for(int i=0;i<m;i++){
-                List<String> b=(List) books.get(i);
-                if(sc7.equals(sc7)==b.get(0).equals(sc7)){
-                    books.remove(i);
-                    System.out.println("删除成功");
-                    save();
-                    return;
+    public void deleteName(List<Mybook> list,String name,File file){
+        if(list.size()==0){
+            System.out.println("没有书籍");
+        }else {
+            for(Mybook book:list){
+                if(book.getName().equals( name )){
+                    list.remove( book );
+                    save( list,file );
+                    System.out.println(book);
+                }else {
+                    System.out.println("没有此书籍");
                 }
             }
-        }catch (Exception ex){
-            System.out.println("输入错误");
         }
-        System.out.println("没有此书籍");
-    }
-    public void save(){
 
+    }
+    public void save(List<Mybook> list,File file){
         OutputStream os = null;
         ObjectOutputStream oos = null;
         try {
             os = new FileOutputStream(file);
             oos = new ObjectOutputStream(os);
-            oos.writeObject(books);
+            oos.writeObject(list);
             oos.flush();
             os.flush();
         } catch (FileNotFoundException e) {
@@ -103,14 +100,13 @@ public class Mybookmethod extends Mybook {
             }
         }
     }
-    public   ArrayList read(){
+    public  void read(List<Mybook> list,File file){
         InputStream is  = null;
         ObjectInputStream ois = null;
-        List list=new ArrayList(  );
         try {
             is = new FileInputStream(file);
             ois = new ObjectInputStream(is);
-           list =(ArrayList) ois.readObject();
+            list =(ArrayList<Mybook>) ois.readObject();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -127,6 +123,5 @@ public class Mybookmethod extends Mybook {
                 e.printStackTrace();
             }
         }
-   return books;
     }
 }
