@@ -11,6 +11,17 @@ public class Mybook implements Serializable {
     private String autor;
     private String bookISBN;
 
+    @Override
+    public String toString() {
+        return "Mybook{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", press='" + press + '\'' +
+                ", autor='" + autor + '\'' +
+                ", bookISBN='" + bookISBN + '\'' +
+                '}';
+    }
+
     public String getName() {
         return name;
     }

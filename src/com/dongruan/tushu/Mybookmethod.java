@@ -100,13 +100,14 @@ public class Mybookmethod {
             }
         }
     }
-    public  void read(List<Mybook> list,File file){
+    public List<Mybook> read(File file){
         InputStream is  = null;
         ObjectInputStream ois = null;
+        List<Mybook> list=new ArrayList<Mybook>(  );
         try {
             is = new FileInputStream(file);
             ois = new ObjectInputStream(is);
-            list =(ArrayList<Mybook>) ois.readObject();
+            list =(List<Mybook>) ois.readObject();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -123,5 +124,6 @@ public class Mybookmethod {
                 e.printStackTrace();
             }
         }
+        return list;
     }
 }

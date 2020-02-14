@@ -11,21 +11,34 @@ public class Mybook implements Serializable {
 
     private String name;
     private double price;
+
+    @Override
+    public String toString() {
+        return "Mybook{" +
+                "name='" + name + '\'' +
+                ", price=" + price +
+                ", press='" + press + '\'' +
+                ", autor='" + autor + '\'' +
+                ", bookISBN='" + bookISBN + '\'' +
+                '}';
+    }
+
     private String press;
     private String autor;
 
+    public Mybook(String name, double price, String press, String autor, String bookISBN) {
+        this.name = name;
+        this.price = price;
+        this.press = press;
+        this.autor = autor;
+        this.bookISBN = bookISBN;
+    }
+
     public Mybook() {
     }
-    public Mybook(String name,double price,String press,String autor,String bookISBN) {
-       this.name=name;
-       this.press=press;
-       this.price=price;
-       this.autor=autor;
-       this.bookISBN=bookISBN;
-    }
-    @Override
-    public String toString() {
-        return "Mybook{}";
+
+    public Mybook(String name) {
+        this.name = name;
     }
 
     private String bookISBN;

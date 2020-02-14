@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class Menu {
     Scanner scanner=new Scanner(System.in);
-    List<Mybook>mybooks=new ArrayList<>(  );
+    List<Mybook>mybooks=new ArrayList<Mybook>();
     Mybookmethod mybook=new Mybookmethod();
     File file=new File("d:/tushu");
 
@@ -16,7 +16,8 @@ public class Menu {
             mybook.inputData(1,mybooks,file);
             mybook.save(mybooks,file);
         }else{
-            mybook.read(mybooks,file);
+           mybooks= mybook.read(file);
+
         }
 
         System.out.println("输入你要做的事情1添加图书2删除图书3查找图书（用户名）4输出全部5退出当前用户");
@@ -41,6 +42,7 @@ public class Menu {
             else if(sc8==4){
                 System.out.println("输出全部");
                 mybook.print(mybooks);
+
 
             }else if(sc8==5){
                 System.out.println("退出");
