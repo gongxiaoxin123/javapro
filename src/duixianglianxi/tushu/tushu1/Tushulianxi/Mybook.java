@@ -1,15 +1,16 @@
-package com.dongruan.tushu;
+package duixianglianxi.tushu.tushu1.Tushulianxi;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Mybook implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID;
+
+    static {
+        serialVersionUID = 1L;
+    }
+
     private String name;
     private double price;
-    private String press;
-    private String autor;
-    private String bookISBN;
 
     @Override
     public String toString() {
@@ -21,6 +22,26 @@ public class Mybook implements Serializable {
                 ", bookISBN='" + bookISBN + '\'' +
                 '}';
     }
+
+    private String press;
+    private String autor;
+
+    public Mybook(String name, double price, String press, String autor, String bookISBN) {
+        this.name = name;
+        this.price = price;
+        this.press = press;
+        this.autor = autor;
+        this.bookISBN = bookISBN;
+    }
+
+    public Mybook() {
+    }
+
+    public Mybook(String name) {
+        this.name = name;
+    }
+
+    private String bookISBN;
 
     public String getName() {
         return name;

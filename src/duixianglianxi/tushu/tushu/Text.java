@@ -1,4 +1,6 @@
-package com.dongruan.tushu;
+package duixianglianxi.tushu.tushu;
+
+import duixianglianxi.tushu.tushu.Menu;
 
 public class Text {
 

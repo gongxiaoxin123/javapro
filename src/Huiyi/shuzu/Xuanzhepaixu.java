@@ -3,7 +3,7 @@ package Huiyi.shuzu;
 public class Xuanzhepaixu {
     public static void main(String[] args) {
         int[]arry={20,30,5,3,8,6,10,11};
-        bubbleSort( arry );
+        maopao( arry );
     }
     //选择排序
     //一个数组让其从小到大或从大到小排序
@@ -24,16 +24,17 @@ public class Xuanzhepaixu {
    // 一个数组相邻的2个如果前面的大那么调换顺序
     public static void maopao(int[]arry){
         for(int i=0;i<arry.length-1;i++){
-            for(int m=i;i<arry.length-1-i;m++){
-                if(arry[i]<arry[m+1]){
+            for(int m=0;m<arry.length-1-i;m++){
+                if(arry[m]>arry[m+1]){
                     int temp=arry[m];
                     arry[m]=arry[m+1];
                     arry[m+1]=temp;
                 }
             }
-            System.out.println(arry[i]);
         }
-
+        for(int a:arry){
+            System.out.println(a);
+        }
     }
     public static void bubbleSort(int[] arr){
         for (int x=0;x<arr.length-1 ;x++ ){
