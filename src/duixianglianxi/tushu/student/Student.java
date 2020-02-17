@@ -1,6 +1,8 @@
 package duixianglianxi.tushu.student;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
     /*
     * 编写一个程序
     * 学生类包括学号，姓名，成绩
@@ -10,6 +12,7 @@ public class Student {
     * 学生数据的增删改
     * 学生类持久化
     * */
+    private static final long serialVersionUID = 1L;
     private Integer no;
     private String name;
     private Double chenji;

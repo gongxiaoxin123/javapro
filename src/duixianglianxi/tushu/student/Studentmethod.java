@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Studentmethod {
     //添加学生信息
-    public void add(List< Student> list){
+    public void adds(List< Student> list,File file){
         Scanner scanner=new Scanner( System.in );
         System.out.println("请输入学生学号");
         Integer sc1=scanner.nextInt();
@@ -15,6 +15,7 @@ public class Studentmethod {
         Double sc2=scanner.nextDouble();
         Student student=new Student(sc1,sc3,sc2 );
         list.add(student);
+        save( list,file );
     }
     //输出全部学生成绩信息
     public void print(List<Student>list){
@@ -22,29 +23,27 @@ public class Studentmethod {
             System.out.println("没有学生");
         }else {
             for(Student stu:list){
-                System.out.println(stu.getChenji());
                 System.out.println(stu);
             }
         }
     }
     //通过学号查找学生成绩信息
-    public void serch(Map<Integer, Student>list){
+    public void serch(List<Student>list){
         if(list.size()==0){
             System.out.println("没有学生");
         }else {
             Scanner scanner=new Scanner( System.in );
             System.out.println("请输入学生学号");
             Integer sc1=scanner.nextInt();
-            Set<Integer>keys=list.keySet();
-            for(Integer key:keys){
-                if(key==sc1){
-                    System.out.println(list.get( key ));
+            for(Student st:list){
+                if(st.getNo()==sc1){
+                    System.out.println(st);
                 }
             }
         }
     }
     //通过学号删除学生信息
-    public void delet(List< Student>list){
+    public void delets(List< Student>list,File file){
         if(list.size()==0){
             System.out.println("没有学生");
         }else {
@@ -52,17 +51,21 @@ public class Studentmethod {
             System.out.println("请输入学生学号");
             Integer sc1 = scanner.nextInt();
             for(Student stu:list){
-                if(stu.getNo()==sc1){
-                    System.out.println(stu);
+                if(stu.getNo().equals( sc1 )){
+                    System.out.println("删除成功");
                     list.remove( stu );
+                    save( list,file );
+                    break;
+                }else {
+                    System.out.println("没有学生");
                 }
             }
         }
     }
-  public List<Student> read(File file){
+  public List<Student> read(File file,List<Student>list){
       InputStream inputStream=null;
       ObjectInputStream ob=null;
-      List<Student>list=new ArrayList<>(  );
+
       try {
           inputStream=new FileInputStream( file );
           ob=new ObjectInputStream( inputStream );
@@ -82,7 +85,7 @@ public class Studentmethod {
               } catch (IOException e) {
                   e.printStackTrace();
               }
-          }
+      }
       return list;
   }
   public void save(List<Student>aa,File file){
@@ -94,6 +97,7 @@ public class Studentmethod {
           ob.writeObject(aa);
           ob.flush();
           ou.flush();
+          System.out.println("wanc");
       } catch (FileNotFoundException e) {
           e.printStackTrace();
       } catch (IOException e) {
@@ -108,7 +112,37 @@ public class Studentmethod {
                   e.printStackTrace();
               }
           }
-
       }
-
+   public void menu(File file,List<Student> list,Student stu){
+        if(!file.exists()){
+            save( list,file );
+        }else{
+            list.add( stu );
+             list=read( file,list );
+        }
+       System.out.println("输入你想要做的事情1~5");
+       System.out.println("1添加图书");
+       System.out.println("2查找图书");
+       System.out.println("3删除图书");
+       System.out.println("4输出所有");
+       System.out.println("5退出");
+       Scanner scanner=new Scanner( System.in );
+       Integer sc=scanner.nextInt();
+       switch (sc){
+           case 1:
+               adds( list ,file);
+               break;
+           case 2:
+               serch( list );
+               break;
+           case 3:
+               delets( list,file );
+               break;
+           case 4:
+               print( list );
+               break;
+           case 5:
+               System.exit(0);
+       }
+   }
 }
