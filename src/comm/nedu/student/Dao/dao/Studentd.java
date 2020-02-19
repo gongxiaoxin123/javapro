@@ -1,18 +1,24 @@
 package comm.nedu.student.Dao.dao;
 
+import coa.home.lianxi.until.Jdbcu;
 import comm.nedu.student.Dao.pojo.Student;
+import comm.nedu.student.Dao.util.Jdbcutil;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Studentd implements Studentdao {
-    String url="jdbc:mysql://localhost:3306/db_cwgl?useUnicode=true&characterEncoding=utf8";
+   /* String url="jdbc:mysql://localhost:3306/db_cwgl?useUnicode=true&characterEncoding=utf8";
     String username="root";
-    String password="123123";
+    String password="123123";*/
     @Override
     public List<Student> query() {
-        List<Student> list=new ArrayList<>(  );
+      List<Student>list=  Jdbcu.chaxun( "select id,name,age,sex from student",Student.class );
+      return list;
+        /*List<Student>list   = Jdbcutil.executeQuery1( "select id,name,age,sex from student",Student.class);
+        return list;*/
+       /* List<Student> list=new ArrayList<>(  );
         Connection con=null;
         PreparedStatement pr=null;
         ResultSet rs=null;
@@ -52,13 +58,14 @@ public class Studentd implements Studentdao {
                 e.printStackTrace();
             }
         }
-        return list;
+        return list;*/
     }
 
     @Override
     public int add(Student student) {
-        int i=0;
-        Connection con=null;
+        return Jdbcu.Zsg( "insert into student(name,age,sex) values(?,?,?)" ,student.getName(),student.getAge(),student.getSex());
+       /*return Jdbcutil.executeUpdate( "insert into student(name,age,sex) values(?,?,?)",student.getName(),student.getAge(),student.getSex() );*/
+       /* Connection con=null;
         PreparedStatement pr=null;
         try {
             //加载驱动
@@ -86,33 +93,34 @@ public class Studentd implements Studentdao {
                 e.printStackTrace();
             }
         }
-        return i;
+        return i;*/
     }
 
     @Override
     public int update(Student student) {
-        int i=0;
-        Connection con=null;
-        PreparedStatement pr=null;
-        try {
-            //加载驱动
-            Class.forName( "com.mysql.jdbc.Driver" );
-            //创建连接
-            con= DriverManager.getConnection( url,username,password );
-            //创建写sql语句的命令行
-            pr=con.prepareStatement( "update student set name=?,age=?,sex=? where id=?" );
-            //执行sql语句查询的时候需要调用executeQuery方法 返回一个 ResultSet 结果集
-            pr.setString( 1,student.getName() );
-            pr.setInt( 2,student.getAge() );
-            pr.setInt( 3, student.getSex());
-            pr.setInt( 4,student.getId() );
-            i=pr.executeUpdate();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }finally {
-            try {
+       return Jdbcutil.executeUpdate( "update student set name=?,age=?,sex=? where id=?",student.getName(),student.getAge(),student.getSex(),student.getId() );
+      /*  int i=0;
+                Connection con=null;
+                PreparedStatement pr=null;
+                try {
+                    //加载驱动
+                    Class.forName( "com.mysql.jdbc.Driver" );
+                    //创建连接
+                    con= DriverManager.getConnection( url,username,password );
+                    //创建写sql语句的命令行
+                    pr=con.prepareStatement( "update student set name=?,age=?,sex=? where id=?" );
+                    //执行sql语句查询的时候需要调用executeQuery方法 返回一个 ResultSet 结果集
+                    pr.setString( 1,student.getName() );
+                    pr.setInt( 2,student.getAge() );
+                    pr.setInt( 3, student.getSex());
+                    pr.setInt( 4,student.getId() );
+                    i=pr.executeUpdate();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }finally {
+                    try {
                 if(pr!=null)
                     pr.close();
                 if(con!=null)
@@ -121,12 +129,13 @@ public class Studentd implements Studentdao {
                 e.printStackTrace();
             }
         }
-        return i;
+        return i;*/
     }
 
     @Override
     public int del(int id) {
-        int i=0;
+        return Jdbcutil.executeUpdate( "delete from student where id=?",id );
+        /*int i=0;
         Connection con=null;
         PreparedStatement pr=null;
         try {
@@ -153,6 +162,6 @@ public class Studentd implements Studentdao {
                 e.printStackTrace();
             }
         }
-        return i;
+        return i;*/
     }
 }

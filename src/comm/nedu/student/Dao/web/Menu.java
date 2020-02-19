@@ -43,6 +43,7 @@ public class Menu {
     private void query(){
 
         List<Student>list=studentserver.query();
+
         if(list.size()==0){
             System.out.println("没有学生");
         }else {
