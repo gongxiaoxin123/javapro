@@ -37,6 +37,7 @@ public class Menu {
                 break;
             case 5:
                 System.out.println("退出");
+                System.exit(0);
                 break;
         }
     }
